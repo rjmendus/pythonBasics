@@ -1,8 +1,11 @@
 on: [push]
 
 jobs:
-  deploy:
+  s3_job:
     runs-on: ubuntu-latest
+    name: S3 test job
     steps:
-    - uses: actions/checkout@master
-    - uses: rjmendus/github-action-s3-upload
+    - name: copy repo
+      uses: actions/checkout@master
+    - name: Run s3 copy
+      uses: rjmendus/github-action-s3-upload@master
